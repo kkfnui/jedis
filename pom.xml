@@ -60,6 +60,7 @@
         <github.global.server>github</github.global.server>
     </properties>
 
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -77,13 +78,20 @@
         </dependency>
     </dependencies>
 
+
     <distributionManagement>
         <repository>
-            <id>github</id>
-            <name>GitHub ${project.artifactId} Repository</name>
-            <url>https://raw.github.com/xetorthio/${project.artifactId}/mvn-repo
+            <id>internal-release</id>
+            <name>internal release</name>
+            <url>http://tw06185.sandai.net:8081/repository/internal-release
             </url>
         </repository>
+        <snapshotRepository>
+            <id>internal-snapshots</id>
+            <name>internal snapshots</name>
+            <url>http://tw06185.sandai.net:8081/repository/internal-snapshots/
+            </url>
+        </snapshotRepository>
     </distributionManagement>
 
     <build>
@@ -149,11 +157,31 @@
                 <artifactId>maven-deploy-plugin</artifactId>
                 <version>2.8.1</version>
                 <configuration>
-                    <altDeploymentRepository>
-                        internal.repo::default::file://${project.build.directory}/mvn-repo
-                    </altDeploymentRepository>
+
                 </configuration>
             </plugin>
+
+            <!--<plugin>-->
+            <!--<groupId>org.sonatype.plugins</groupId>-->
+            <!--<artifactId>nexus-staging-maven-plugin</artifactId>-->
+            <!--<version>1.5.1</version>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<id>default-deploy</id>-->
+            <!--<phase>deploy</phase>-->
+            <!--<goals>-->
+            <!--<goal>deploy</goal>-->
+            <!--</goals>-->
+            <!--</execution>-->
+            <!--</executions>-->
+            <!--<configuration>-->
+            <!--<serverId>nexus</serverId>-->
+            <!--<nexusUrl>http://tw06177.sandai.net:8081/repository/release/-->
+            <!--</nexusUrl>-->
+            <!--<skipStaging>true</skipStaging>-->
+            <!--</configuration>-->
+            <!--</plugin>-->
+
             <plugin>
                 <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
                 <artifactId>maven-java-formatter-plugin</artifactId>
