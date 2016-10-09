@@ -47,7 +47,7 @@ public class ShardServers {
             server = masters.get(i);
         } else {
             int i = random.nextInt(slaves.size());
-            server = masters.get(i);
+            server = slaves.get(i);
         }
 
         return poolManager.getJedisPool(server);
