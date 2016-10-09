@@ -226,7 +226,7 @@
                     <archive>
                         <manifest>
                             <mainClass>
-                                redis.clients.jedis.Application
+                                com.xunlei.redis.clients.jedis.Application
                             </mainClass>
                         </manifest>
                     </archive>
