@@ -37,7 +37,7 @@ public class ShardServers {
         }
 
         if (!isWrite && slaves.isEmpty()) {
-            throw new JedisServerException("no slave server when executor a read command");
+            isWrite = true;
         }
 
         Server server;
